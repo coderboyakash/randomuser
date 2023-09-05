@@ -17,6 +17,12 @@ const UserInfo = (props: Props) => {
 				<label htmlFor="email">Email</label>
 				<div>{user?.email}</div>
 			</div>
+			<div className="group">
+				<label htmlFor="address">Address</label>
+				<div>
+					{`${user?.location?.street?.number} ${user?.location?.street?.name} ${user?.location?.city} ${user?.location?.state}  ${user?.location?.country}  ${user?.location?.postcode}`}
+				</div>
+			</div>
 		</div>
 	);
 };
