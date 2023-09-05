@@ -16,11 +16,11 @@ const UserInfo = ({ handleFetchUser }: Props) => {
 				<label htmlFor="email">Email</label>
 				<div>{localStorage.getItem("email")}</div>
 			</div>
-			<button className="refresh-btn" onClick={handleFetchUser}>
+			{/* <button className="refresh-btn" onClick={handleFetchUser}>
 				<Refresh/>
 				&nbsp;
 				Refresh
-			</button>
+			</button> */}
 		</div>
 	);
 };
