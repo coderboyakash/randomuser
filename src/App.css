@@ -57,13 +57,13 @@
 	border-radius: 5px;
 }
 
-.user-info .group label{
+.user-info .group label {
 	font-weight: 600;
 	margin-bottom: 5px;
 	display: inline-block;
 }
 
-.refresh-btn{
+.refresh-btn {
 	padding: 7px 12px;
 	border: none;
 	cursor: pointer;
@@ -74,17 +74,17 @@
 	margin-top: 20px;
 }
 
-.profile-pic{
+.profile-pic {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 30px;
 }
 
-.profile-pic img{
+.profile-pic img {
 	border-radius: 50%;
 }
 
-.error-text{
+.error-text {
 	color: #61dafb;
 }
 
