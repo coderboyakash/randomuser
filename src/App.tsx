@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import axios from "axios";
+import Loader from "./components/Loader";
+import UserInfo from "./components/UserInfo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+type Props = {};
+
+const App = (props: Props) => {
+	const [loading, setLoading] = useState(true);
+
+	const handleFetchUser = async () => {
+		setLoading(true);
+		const { data } = await axios.get("https://randomuser.me/api");
+		const result = data.results[0];
+		localStorage.setItem(
+			"name",
+			`${result?.name?.title} ${result?.name?.first} ${result?.name?.last}`
+		);
+		localStorage.setItem("email", result.email);
+		setLoading(false);
+	};
+
+	useEffect(() => {
+		handleFetchUser();
+	}, []);
+
+	if (loading) {
+		return (
+			<div className="App">
+				<Loader />
+			</div>
+		);
+	}
+
+	return (
+		<div className="App">
+			<UserInfo
+				handleFetchUser={handleFetchUser}
+			/>
+		</div>
+	);
+};
 
 export default App;
