@@ -71,9 +71,18 @@
 	align-items: center;
 	width: max-content;
 	border-radius: 50px;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
+.profile-pic{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+.profile-pic img{
+	border-radius: 50%;
+}
 
 .error-text{
 	color: #61dafb;

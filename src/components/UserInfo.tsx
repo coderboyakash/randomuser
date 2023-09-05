@@ -1,26 +1,22 @@
 import React from "react";
-import Refresh from "../Icons/Refresh";
 
-type Props = {
-	handleFetchUser: () => {};
-};
+type Props = {};
 
-const UserInfo = ({ handleFetchUser }: Props) => {
+const UserInfo = (props: Props) => {
+	const user = JSON.parse(localStorage.getItem("user") as string);
 	return (
 		<div className="user-info">
+			<div className="profile-pic">
+				<img style={{ width: '100px' }} src={user?.picture?.large} alt="" />
+			</div>
 			<div className="group">
 				<label htmlFor="name">Name</label>
-				<div>{localStorage.getItem("name")}</div>
+				<div>{`${user?.name?.title} ${user?.name?.first} ${user?.name?.last}`}</div>
 			</div>
 			<div className="group">
 				<label htmlFor="email">Email</label>
-				<div>{localStorage.getItem("email")}</div>
+				<div>{user?.email}</div>
 			</div>
-			{/* <button className="refresh-btn" onClick={handleFetchUser}>
-				<Refresh/>
-				&nbsp;
-				Refresh
-			</button> */}
 		</div>
 	);
 };

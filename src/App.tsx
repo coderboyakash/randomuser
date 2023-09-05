@@ -17,11 +17,7 @@ const App = (props: Props) => {
 		try {
 			const { data } = await axios.get("https://randomuser.me/api");
 			const { results } = data;
-			localStorage.setItem(
-				"name",
-				`${results[0]?.name?.title} ${results[0]?.name?.first} ${results[0]?.name?.last}`
-			);
-			localStorage.setItem("email", results[0].email);
+			localStorage.setItem('user', JSON.stringify(results[0]))
 		} catch (error) {
 			setError(true)
 		}
@@ -42,9 +38,7 @@ const App = (props: Props) => {
 
 	return (
 		<div className="App">
-			{!error && <UserInfo 
-				handleFetchUser={handleFetchUser} 
-			/>}
+			{!error && <UserInfo/>}
 			{error && <div className="error-text">Something went wrong please try again!</div>}
 			<button className="refresh-btn" onClick={handleFetchUser}>
 				<Refresh/>
